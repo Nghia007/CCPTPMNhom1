@@ -1,0 +1,44 @@
+
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo"><img src="../../../../assets/logoht.png" alt=""></a>
+    <app-search *ngIf="!isAdmin"></app-search>
+    <nav>
+      <ul>
+        <li *ngIf="!isAuth">
+          <a routerLink="/login">Đăng nhập</a>
+        </li>
+        <li *ngIf="!isAuth">
+          <a routerLink="/register">Đăng ký</a>
+        </li>
+        <li *ngIf="isAuth" class="menu-container">
+          <a routerLink="/dashboard">{{user.name}}</a>
+          <div class="menu">
+            <a *ngIf="!isAdmin" routerLink="/orders">Đơn đã đặt</a>
+            <a (click)="logout()">Đăng xuất</a>
+          </div>
+        </li>
+        <li *ngIf="isAdmin">
+          <a routerLink="/accounts">
+            Quản lý tài khoản
+          </a>
+        </li>
+        <li *ngIf="isAdmin">
+          <a routerLink="/order-admin">
+            Quản lý đơn hàng
+          </a>
+        </li>
+        <li *ngIf="isAdmin">
+          <a routerLink="/books">
+            Quản lý sách
+          </a>
+        </li>
+        <li *ngIf="isAuth && !isAdmin">
+          <a routerLink="/cart-page">
+            Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

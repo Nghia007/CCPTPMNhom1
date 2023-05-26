@@ -1,0 +1,65 @@
+<div class="order-admin">
+  <table *ngFor="let orderx of orders">
+    <tr>
+      <td colspan="5">
+        <h5>Đơn hàng khách: {{orderx.name}}</h5>
+        <h6>Đơn địa chỉ: {{orderx.address}}</h6>
+        <div>
+          <h6>Thay đổi trạng thái đơn hàng</h6>
+          <div style="width: 200px;">
+            <select #teams (change)="onSelected(teams.value)" class="form-control w-100">
+              <option>Cập nhật trạng thái</option>
+              <option value="NEW">Đang xử lý</option>
+              <option value="SENDING">Đang gửi</option>
+              <option value="SHIPPED">Đang giao</option>
+              <option value="DELIVERING">Đã giao</option>
+            </select>
+            <button (click)="updateStatus(orderx.id)" class="btn btn-primary mt-2">Cập nhật</button>
+          </div>
+          <app-track [status]="orderx.status"></app-track>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Ảnh</th>
+      <th>Tên sách</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Giá</th>
+    </tr>
+    <tr *ngFor="let order of orderx.items">
+      <td>
+        <a routerLink="/food/{{order.food.id}}">
+          <img [src]="order.food.imageUrl"/>
+        </a>
+      </td>
+      <td>
+        {{order.food.name}}
+      </td>
+      <td>
+        {{order.food.price | currency}}
+      </td>
+      <td>
+        {{order.quantity}}
+      </td>
+      <td>
+        {{order.price | currency}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+      <td>
+        <strong>
+          Tổng :
+        </strong>
+      </td>
+      <td>
+        <strong>
+          {{orderx.totalPrice | currency}}
+        </strong>
+      </td>
+    </tr>
+  </table>
+  <br/>
+
+</div>

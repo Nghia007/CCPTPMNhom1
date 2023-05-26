@@ -1,0 +1,74 @@
+<div class="container2">
+  <div>
+    <!-- name, price, stars, imageUrl, tags -->
+    <button (click)="openFormAdd()" class="btnbook">Thêm sách</button>
+    <form *ngIf="openForm" class="add">
+      <div class="colum">
+        <label>Tên sách</label>
+        <input #namebookadd type="text" />
+      </div>
+      <div class="colum">
+        <label>Giá sách</label>
+        <input #pricebookadd type="number" />
+      </div>
+      <div class="colum">
+        <label>Sao</label>
+        <input #starbookadd type="number" value="5" disabled />
+      </div>
+      <div class="colum">
+        <label>Link Image</label>
+        <input #linkbookadd placeholder="Link hình ảnh" type="text" value="" />
+      </div>
+      <div>
+        <label>Tags</label>
+        <div>
+          <input #isCheck1 type="checkbox" id="check1" name="check1" value="Luyện thi" />
+          <label for="check1">Luyện thi</label><br />
+          <input #isCheck2 type="checkbox" id="check2" name="check2" value="Trẻ em" />
+          <label for="check2">Trẻ em</label><br />
+          <input #isCheck3 type="checkbox" id="check3" name="check3" value="Cuộc sống" />
+          <label for="check3">Cuộc sống</label><br />
+          <input #isCheck4 type="checkbox" id="check4" name="check4" value="Mẹo" />
+          <label for="check4">Mẹo</label><br />
+        </div>
+      </div>
+      <div>
+        <button (click)="addBook()" class="btn btn-primary w-2">Thêm</button>
+      </div>
+    </form>
+
+  </div>
+
+  <table *ngIf="books" id="customers">
+    <tr>
+      <th>id</th>
+      <th>Tên sách</th>
+      <th>Giá</th>
+      <th>Số sao</th>
+      <th>Ảnh</th>
+      <th>Sửa</th>
+      <th>Xóa</th>
+    </tr>
+    <tr *ngFor="let book of books">
+      <td>{{ book.id }}</td>
+      <td><input #namebook type="text" value="{{ book.name }}" /></td>
+      <td><input #pricebook type="number" value="{{ book.price }}" /></td>
+      <td><input #starsbook type="number" value="{{ book.stars }}" /></td>
+      <td class="colum">
+        <img class="imgmin" src="{{ book.imageUrl }}" alt="" />
+        <input
+          #urlbook
+          type="text"
+          value="{{ book.imageUrl }}"
+          placeholder="Nhập link image"
+        />
+      </td>
+      <td>
+        <button (click)="handleEditBook({ id: book.id, image: book.imageUrl })">
+          Sửa
+        </button>
+      </td>
+      <td><button (click)="handleDeleteBook(book.id)">Xóa</button></td>
+    </tr>
+  </table>
+</div>

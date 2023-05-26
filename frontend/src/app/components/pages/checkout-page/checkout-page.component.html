@@ -1,0 +1,26 @@
+<div class="container2">
+  <div class="content">
+    <app-title title="Thông tin hóa đơn" fontSize="1.6rem"></app-title>
+    <form [formGroup]="checkoutForm">
+      <text-input [control]="fc.name" label="Tên"></text-input>
+      <text-input [control]="fc.address" label="Địa chỉ"></text-input>
+    </form>
+   <app-order-items [order]="order"></app-order-items>
+  </div>
+  <div class="map">
+    <app-title
+    title="Chọn địa chỉ của bạn trên map"
+    fontSize="1.6rem"></app-title>
+    <map [order]="order"></map>
+  </div>
+  <div class="buttons-container">
+    <div class="buttons">
+      <button (click)="createOrder()">
+        Thanh toán bằng thẻ
+      </button>
+      <button (click)="createOrder2()">
+        Thanh toán khi nhận hàng
+      </button>
+    </div>
+  </div>
+</div>

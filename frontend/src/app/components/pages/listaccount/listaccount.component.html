@@ -1,0 +1,23 @@
+<div *ngIf="accounts" class="container">
+
+<table id="customers">
+  <tr>
+    <th>id</th>
+    <th>Email</th>
+    <th>Địa chỉ</th>
+    <th>Tên</th>
+    <th>Sửa</th>
+    <th>Xóa</th>
+  </tr>
+  <tr *ngFor="let account of accounts">
+    <td>{{account.id}}</td>
+    <td><input #emailuser type="text" value="{{account.email}}"></td>
+    <td><input #addressuser type="text" value="{{account.address}}"></td>
+    <td><input #nameuser type="text" value="{{account.name}}"></td>
+    <td><button (click)="editUserHd(account.id)">Sửa</button></td>
+    <td><button (click)="deleteUser(account.id)">Xóa</button></td>
+  </tr>
+
+</table>
+
+</div>

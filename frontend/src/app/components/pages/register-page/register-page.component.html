@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Đăng kí"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <text-input
+        [control]="fc.name"
+        [showErrorsWhen]="isSubmitted"
+        label="Name"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.email"
+        [showErrorsWhen]="isSubmitted"
+        label="Email"
+        type="email"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.password"
+        [showErrorsWhen]="isSubmitted"
+        label="Password"
+        type="password"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.confirmPassword"
+        [showErrorsWhen]="isSubmitted"
+        label="Xác nhận Password"
+        type="password"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.address"
+        [showErrorsWhen]="isSubmitted"
+        label="Address"
+      >
+        `</text-input
+      >
+
+      <default-button text="Đăng ký"></default-button>
+
+      <div class="login">
+       Đã có tài khoản? &nbsp;
+        <a routerLink="/login" [queryParams]="{ returnUrl: returnUrl }">
+          Đăng nhập ở đây
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

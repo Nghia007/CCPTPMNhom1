@@ -1,0 +1,40 @@
+<div class="container px-1 px-md-4 py-5 mx-auto">
+  <div class="card">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12">
+        <ul id="progressbar" class="text-center">
+          <li [class]="status == 'NEW' || status == 'SHIPPED' || status == 'SENDING' || status == 'DELIVERING' ? 'active step0' : 'step0'"></li>
+          <li [class]="status == 'SENDING' || status == 'DELIVERING' || status == 'SHIPPED'  ? 'active step0' : 'step0'"></li>
+          <li [class]="status == 'SHIPPED' || status == 'DELIVERING' ? 'active step0' : 'step0'"></li>
+          <li [class]="status == 'DELIVERING' ? 'active step0' : 'step0'"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row justify-content-between top">
+      <div class="row d-flex icon-content">
+        <img src="assets/CheckList.png" alt="" class="icon" />
+        <div class="d-flex flex-column">
+          <p class="font-weight-bold">Đang xử lý</p>
+        </div>
+      </div>
+      <div class="row d-flex icon-content">
+        <img src="assets/Delivery.png" alt="" class="icon" />
+        <div class="d-flex flex-column">
+          <p class="font-weight-bold">Đang gửi</p>
+        </div>
+      </div>
+      <div class="row d-flex icon-content">
+        <img src="assets/Shipping.png" alt="" class="icon" />
+        <div class="d-flex flex-column">
+          <p class="font-weight-bold">Đang giao</p>
+        </div>
+      </div>
+      <div class="row d-flex icon-content">
+        <img src="assets/Home.png" alt="" class="icon" />
+        <div class="d-flex flex-column">
+          <p class="font-weight-bold">Đã giao</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

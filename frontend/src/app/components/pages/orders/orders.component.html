@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="content" *ngIf="orders">
+    <h1>Khách hàng: #{{orders.id}}</h1>
+    <div class="details">
+      <div><strong>Ngày đặt</strong> {{orders.createdAt | date:'medium'}}</div>
+      <div><strong>Tên</strong> {{orders.name}}</div>
+      <div><strong>Địa chỉ</strong> {{orders.address}}</div>
+      <div *ngIf="orders.paymentId">
+        <strong>Payment ID</strong> {{orders.paymentId}}
+      </div>
+      <div>
+        <strong>Trạng thái</strong>
+        <app-track [status]="orders.status"></app-track>
+      </div>
+    </div>
+
+    <app-list-order-user *ngFor="let order of items" [order]="order"></app-list-order-user>
+  </div>
+
+
+</div>
